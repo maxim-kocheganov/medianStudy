@@ -1,18 +1,3 @@
-# from PIL import Image
-
-# def filter(img):
-#     edgex = (img.width // 2)
-#     edgey = (img.height // 2)
-#     for x in range(edgex,img.width - edgex):
-#         for y in range(edgey,img.height - edgey):
-#             Image.new("L", (img.width,img.height))
-#             img.putpixel((x,y),0)
-
-# if __name__ == "__main__":
-#     img = Image.open("test.png")
-#     filter(img)
-#     img.show()
-
 import numpy
 from PIL import Image
 
@@ -23,9 +8,7 @@ def median_filter(data, filter_size):
     data_final = []
     data_final = numpy.zeros((len(data),len(data[0])))
     for i in range(len(data)):
-
         for j in range(len(data[0])):
-
             for z in range(filter_size):
                 if i + z - indexer < 0 or i + z - indexer > len(data) - 1:
                     for c in range(filter_size):
@@ -51,5 +34,5 @@ def main():
     img = Image.fromarray(removed_noise)
     img.show()
 
-
-main()
+if __name__ == "__main__":
+    main()
